@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>💌 for my ex • BRUTAL TOUCH 💌</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Dancing+Script:wght@400;600;700&display=swap');
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      background: #fcedf2;
+      background-image: 
+        radial-gradient(circle at 10% 30%, #ffe4ed 15%, transparent 35%),
+        radial-gradient(circle at 90% 70%, #ffe0f0 20%, transparent 40%),
+        radial-gradient(circle at 40% 20%, #ffd9e8 10%, transparent 30%);
+      min-height: 100vh;
+      min-height: -webkit-fill-available;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Quicksand', sans-serif;
+      padding: 12px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ===== FLOATING HEARTS ===== */
+    .floating-heart {
+      position: fixed;
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+      animation: floatHeart 15s infinite linear;
+      color: #c98ba9;
+    }
+
+    @keyframes floatHeart {
+      0% { transform: translateY(100vh) translateX(0) rotate(0deg); }
+      100% { transform: translateY(-20vh) translateX(30px) rotate(360deg); }
+    }
+
+    /* ===== MAIN CARD ===== */
+    .romantic-card {
+      background: rgba(255, 250, 253, 0.85);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: max(40px, min(8vw, 60px));
+      box-shadow: 
+        0 30px 50px -25px rgba(210, 120, 160, 0.5),
+        0 0 0 2px rgba(255, 255, 255, 0.7) inset,
+        0 0 30px rgba(255, 200, 230, 0.6);
+      width: 100%;
+      max-width: 800px;
+      padding: clamp(25px, 6vw, 50px) clamp(20px, 5vw, 45px);
+      position: relative;
+      z-index: 20;
+      border: 1px solid rgba(255, 230, 245, 0.8);
+      transition: all 0.4s ease;
+      margin: 10px;
+    }
+
+    /* ===== HEADER ===== */
+    .romantic-header {
+      text-align: center;
+      margin-bottom: clamp(15px, 4vw, 30px);
+    }
+
+    .header-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2.5rem, 10vw, 4rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #c45a7a, #b24f73, #d2698c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 2px 2px 10px rgba(255, 200, 220, 0.5);
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+
+    /* ===== BUTTON ===== */
+    .elegant-btn {
+      background: #ffc0d0;
+      border: none;
+      color: #402935;
+      font-weight: 600;
+      padding: clamp(12px, 4vw, 16px) clamp(25px, 8vw, 40px);
+      border-radius: 50px;
+      font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+      font-family: 'Quicksand', sans-serif;
+      box-shadow: 0 clamp(5px, 1.5vw, 8px) 0 #b57e99, 0 10px 25px #ffb0cb;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+      border: 2px solid white;
+      letter-spacing: 1px;
+      width: fit-content;
+      margin: 5px auto;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .elegant-btn:active {
+      transform: translateY(3px) scale(0.98);
+      box-shadow: 0 clamp(3px, 1vw, 5px) 0 #7e556e;
+    }
+
+    /* ===== HEART SELECTION ===== */
+    .heart-collection {
+      display: flex;
+      gap: clamp(15px, 5vw, 30px);
+      justify-content: center;
+      margin: clamp(20px, 6vw, 40px) 0;
+      flex-wrap: wrap;
+    }
+
+    .romantic-heart {
+      font-size: clamp(3.5rem, 15vw, 5.5rem);
+      cursor: pointer;
+      filter: drop-shadow(0 10px 15px #ff9ebb);
+      transition: all 0.3s ease;
+      padding: 5px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .romantic-heart:active {
+      transform: scale(1.3);
+    }
+
+    .romantic-heart.selected {
+      animation: heartPop 0.5s ease;
+    }
+
+    @keyframes heartPop {
+      0%, 100% { transform: scale(1); }
+      40% { transform: scale(1.5); }
+      70% { transform: scale(1.2); }
+    }
+
+    /* ===== GAME ARENA ===== */
+    .game-arena {
+      position: relative;
+      min-height: clamp(350px, 80vw, 450px);
+      background: rgba(255, 245, 250, 0.7);
+      border-radius: clamp(40px, 10vw, 80px);
+      padding: clamp(15px, 4vw, 25px);
+      margin: clamp(15px, 4vw, 30px) 0;
+      border: 3px dashed #ffbed6;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 clamp(6px, 2vw, 10px) 0 #f0b8cc;
+      touch-action: pan-y pinch-zoom;
+      overflow: hidden;
+    }
+
+    .game-choice {
+      padding: clamp(12px, 3.5vw, 20px) clamp(20px, 6vw, 35px);
+      border-radius: 200px;
+      font-weight: 600;
+      font-size: clamp(1.2rem, 5vw, 1.8rem);
+      text-align: center;
+      box-shadow: 0 clamp(8px, 2.5vw, 12px) 0 #b88ba5, 0 10px 25px #ffb0cb;
+      border: 4px solid white;
+      width: fit-content;
+      min-width: clamp(200px, 60vw, 280px);
+      max-width: 90%;
+      position: absolute;
+      z-index: 30;
+      font-family: 'Quicksand', sans-serif;
+      letter-spacing: 0.5px;
+      transition: all 0.15s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+      backdrop-filter: blur(4px);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      touch-action: manipulation;
+      will-change: transform, left, top;
+    }
+
+    @media (max-width: 480px) {
+      .game-choice {
+        white-space: normal;
+        word-break: keep-all;
+        min-width: 160px;
+        padding: 12px 16px;
+        font-size: 1.1rem;
+      }
+    }
+
+    .game-choice.friend-choice {
+      background: #ffe2e2;
+      color: #663f4c;
+    }
+
+    .game-choice.lover-choice {
+      background: #ffd9ec;
+      color: #682d4b;
+      box-shadow: 0 clamp(10px, 3vw, 15px) 0 #cd94b2;
+    }
+
+    /* BRUTAL TOUCH MODE - Bergerak hanya saat disentuh */
+    .game-choice.friend-choice.touched {
+      transition: all 0.1s cubic-bezier(0.1, 1.8, 0.3, 1.8);
+      pointer-events: none;
+      z-index: 40;
+    }
+
+    /* LOVER BUTTON TOUCH */
+    .game-choice.lover-choice.touched {
+      transition: all 0.1s cubic-bezier(0.2, 1.8, 0.4, 1.8);
+      transform: scale(1.6) translateY(-20px) rotate(10deg);
+      background: #ffe6f5;
+      box-shadow: 0 30px 0 #b285a4, 0 35px 55px #ff8eb8;
+      z-index: 50;
+    }
+
+    /* ===== MESSAGE PANEL ===== */
+    .message-panel {
+      background: rgba(255, 245, 250, 0.7);
+      border-radius: clamp(30px, 8vw, 60px);
+      padding: clamp(15px, 4vw, 25px) clamp(15px, 4vw, 30px);
+      margin: clamp(15px, 4vw, 25px) 0;
+      font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+      text-align: center;
+      font-weight: 400;
+      border: 2px solid white;
+      backdrop-filter: blur(5px);
+      min-height: clamp(80px, 20vw, 120px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 clamp(5px, 1.5vw, 8px) 0 #f0bfd2;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    /* ===== LOVE LETTER ===== */
+    .love-letter {
+      background: rgba(255, 250, 253, 0.9);
+      border-radius: clamp(30px, 8vw, 60px) clamp(30px, 8vw, 60px) clamp(30px, 8vw, 60px) 20px;
+      padding: clamp(25px, 6vw, 50px) clamp(20px, 5vw, 45px);
+      margin: clamp(20px, 5vw, 35px) 0;
+      border: 3px solid white;
+      box-shadow: 0 clamp(12px, 3vw, 18px) 0 #f0b7d0, 0 20px 40px #ffc1d4;
+      font-size: clamp(1rem, 4vw, 1.4rem);
+      line-height: 1.9;
+      position: relative;
+    }
+
+    .signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.5rem, 6vw, 2.2rem);
+      text-align: right;
+      margin-top: clamp(15px, 4vw, 30px);
+      color: #b24f73;
+    }
+
+    /* ===== PAGE TRANSITION ===== */
+    .page-romantic {
+      display: none;
+      animation: fadeIn 0.6s ease;
+    }
+
+    .page-romantic.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(15px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== QUOTE STYLE ===== */
+    .quote {
+      font-style: italic;
+      font-size: clamp(0.9rem, 3.8vw, 1.2rem);
+      color: #8f5f78;
+      border-left: 4px solid #ffb8d2;
+      padding-left: clamp(12px, 4vw, 20px);
+      margin: 15px 0;
+    }
+
+    /* ===== SAFE AREA ===== */
+    @supports (padding: max(0px)) {
+      body {
+        padding-left: max(12px, env(safe-area-inset-left));
+        padding-right: max(12px, env(safe-area-inset-right));
+        padding-top: max(12px, env(safe-area-inset-top));
+        padding-bottom: max(12px, env(safe-area-inset-bottom));
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== FLOATING HEARTS ===== -->
+  <div class="floating-heart" style="left: 5%; animation-duration: 18s;">❤️</div>
+  <div class="floating-heart" style="left: 20%; animation-duration: 22s;">💕</div>
+  <div class="floating-heart" style="left: 35%; animation-duration: 16s;">🩷</div>
+  <div class="floating-heart" style="left: 50%; animation-duration: 20s;">💖</div>
+  <div class="floating-heart" style="left: 65%; animation-duration: 24s;">💗</div>
+  <div class="floating-heart" style="left: 80%; animation-duration: 19s;">💘</div>
+  <div class="floating-heart" style="left: 95%; animation-duration: 21s;">💝</div>
+
+  <!-- ===== MAIN CARD ===== -->
+  <main class="romantic-card">
+    <!-- PAGE 1 - OPENING -->
+    <div id="page1" class="page-romantic active">
+      <div class="romantic-header">
+        <div class="header-title">For My Ex</div>
+        <div class="header-sub">someone i still care about</div>
+      </div>
+      
+      <div style="text-align: center;">
+        <div style="margin: 20px auto; width: clamp(120px, 35vw, 160px); height: clamp(120px, 35vw, 160px); background: #ffecf2; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: clamp(4rem, 15vw, 6rem); border: 5px solid white; box-shadow: 0 clamp(10px, 3vw, 15px) 0 #e6adc5, 0 15px 30px #ffb0c8;">
+          💗
+        </div>
+        
+        <p style="font-size: clamp(1rem, 4vw, 1.3rem); color: #612e49; margin: 25px 0 20px; font-style: italic; padding: 0 10px;">
+          "Ada yang pernah aku sayang, dan masih aku sayang sampai sekarang"
+        </p>
+
+        <button class="elegant-btn" id="openBtn">open this letter</button>
+        <p style="margin-top: 15px; color: #a55a7a; font-size: clamp(0.8rem, 3.5vw, 1rem);">(for you, with all my heart)</p>
+      </div>
+    </div>
+
+    <!-- PAGE 2 - APOLOGY + VALENTINE -->
+    <div id="page2" class="page-romantic">
+      <div class="romantic-header">
+        <span style="font-size: clamp(2rem, 8vw, 2.5rem);">💌</span>
+        <h2 style="color: #b24f73; margin: 8px 0; font-size: clamp(1.3rem, 5vw, 1.8rem);">a letter of apology</h2>
+      </div>
+      
+      <div class="romantic-bubble">
+        <p style="font-size: clamp(1.2rem, 5vw, 1.5rem); margin-bottom: 15px;">My ex,</p>
+        <p>Aku tahu aku pernah menyakiti hatimu. Dan itu adalah penyesalan terdalamku.</p>
+        <p style="text-align: center; font-size: clamp(1.8rem, 7vw, 2.2rem); margin: 20px 0;">
+          <span style="background: #ffd9e8; padding: 5px clamp(15px, 5vw, 30px); border-radius: 50px; display: inline-block;">maaf</span>
+        </p>
+        <p>Bukan cuma sekadar kata, tapi aku benar-benar menyesal. Kamu mengajarkanku arti tulus, dan aku sia-siakan.</p>
+        <div class="quote">
+          "Kesalahan terbesarku adalah tidak menyadari betapa berharganya kamu saat masih bersamaku."
+        </div>
+        <p style="margin-top: 15px; text-align: right;">
+          🌷 Happy Valentine's Day. 🌷
+        </p>
+      </div>
+      
+      <div style="text-align: right;">
+        <button class="elegant-btn" id="toPage3Btn">continue →</button>
+      </div>
+    </div>
+
+    <!-- PAGE 3 - INTERACTIVE GAME BRUTAL TOUCH -->
+    <div id="page3" class="page-romantic">
+      <div class="romantic-header">
+        <span style="font-size: clamp(1.5rem, 6vw, 2rem);">🎮</span>
+        <h2 style="color: #b24f73; font-size: clamp(1.2rem, 5vw, 1.6rem);">brutal touch game</h2>
+        <p style="color: #8f5f78; font-size: clamp(0.8rem, 3.5vw, 1rem);">(touch it if you can!)</p>
+      </div>
+      
+      <div class="romantic-bubble">
+        <p style="text-align: center; font-size: clamp(1rem, 4vw, 1.2rem);">choose a heart first</p>
+
+        <div class="heart-collection">
+          <span class="romantic-heart" id="heartRed">❤️</span>
+          <span class="romantic-heart" id="heartPink">🩷</span>
+          <span class="romantic-heart" id="heartPurple">💜</span>
+        </div>
+
+        <div class="message-panel" id="heartMessage">
+          ⋆｡°✩ touch a heart
+        </div>
+
+        <div id="gameArena" class="game-arena" style="display: none;"></div>
+
+        <div class="message-panel" id="finalMessage"></div>
+
+        <div style="text-align: center;">
+          <button class="elegant-btn" id="toPage4Btn" style="display: none;">read the letter →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 4 - ROMANTIC LOVE LETTER -->
+    <div id="page4" class="page-romantic">
+      <div class="love-letter">
+        <div class="romantic-header" style="margin-bottom: 15px;">
+          <span class="header-title" style="font-size: clamp(2rem, 8vw, 3rem);">My Ex</span>
+        </div>
+        
+        <p>Malam ini aku menulis ini bukan karena Valentine, tapi karena aku sudah lama menyimpan rasa yang tak pernah benar-benar pergi.</p>
+        
+        <p style="font-size: clamp(1.4rem, 6vw, 1.8rem); text-align: center; margin: 25px 0;">
+          <span style="background: linear-gradient(135deg, #c45a7a, #b24f73); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700;">
+            "Aku masih menyayangimu"
+          </span>
+        </p>
+        
+        <p>Bukan karena aku tidak punya pilihan lain. Bukan karena aku kesepian. Tapi karena hatiku memilihmu, dan sampai detik ini masih bertahan.</p>
+        
+        <p>Aku tahu kita punya masa lalu yang rumit. Aku tahu aku pernah membuatmu kecewa. Tapi aku juga tahu, aku sudah berubah. Kamu mengajarkanku untuk menjadi lebih baik, meski aku harus kehilanganmu untuk menyadarinya.</p>
+        
+        <div style="text-align: center; margin: 25px 0;">
+          <span style="font-size: clamp(2rem, 8vw, 2.5rem);">🌷</span>
+        </div>
+        
+        <p style="font-size: clamp(1.2rem, 5vw, 1.5rem); text-align: center; font-weight: 600;">
+          Mungkin ini terlalu berani, tapi...
+        </p>
+        
+        <p style="font-size: clamp(1.5rem, 6vw, 2rem); text-align: center; margin: 20px 0; background: #ffecf2; padding: 15px; border-radius: 100px;">
+          Maukah kita mencoba lagi?
+        </p>
+        
+        <p>Aku tidak memaksa. Aku hanya ingin kamu tahu, bahwa di hatiku masih ada ruang khusus untukmu. Dan jika kamu memberi kesempatan kedua, aku janji tidak akan menyia-nyiakannya.</p>
+        
+        <div class="signature">
+          With love, <br> someone who never stopped caring
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 20px;">
+        <button class="elegant-btn" id="restartBtn">read again</button>
+      </div>
+      <div style="margin-top: 20px; text-align: center; color: #a05272; font-size: clamp(0.8rem, 3.5vw, 1rem);">
+        whatever your answer is, thank you for being part of my story 💕
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function() {
+      const page1 = document.getElementById('page1');
+      const page2 = document.getElementById('page2');
+      const page3 = document.getElementById('page3');
+      const page4 = document.getElementById('page4');
+      
+      const openBtn = document.getElementById('openBtn');
+      const toPage3Btn = document.getElementById('toPage3Btn');
+      const toPage4Btn = document.getElementById('toPage4Btn');
+      const restartBtn = document.getElementById('restartBtn');
+
+      const hearts = [
+        document.getElementById('heartRed'),
+        document.getElementById('heartPink'),
+        document.getElementById('heartPurple')
+      ];
+      
+      const heartMessage = document.getElementById('heartMessage');
+      const gameArena = document.getElementById('gameArena');
+      const finalMessage = document.getElementById('finalMessage');
+      const nextBtn = document.getElementById('toPage4Btn');
+
+      let heartPicked = false;
+      let choiceMade = false;
+      let friendBtn, loverBtn;
+      let touchTimeout;
+
+      function showPage(page) {
+        [page1, page2, page3, page4].forEach(p => p.classList.remove('active'));
+        page.classList.add('active');
+      }
+
+      function createButtons() {
+        gameArena.innerHTML = '';
+
+        const friend = document.createElement('div');
+        friend.className = 'game-choice friend-choice';
+        friend.id = 'friendBtn';
+        friend.textContent = 'just friends 😐';
+        friend.style.left = '30px';
+        friend.style.top = '30px';
+
+        const lover = document.createElement('div');
+        lover.className = 'game-choice lover-choice';
+        lover.id = 'loverBtn';
+        lover.textContent = 'try again 💖';
+        lover.style.right = '30px';
+        lover.style.top = '30px';
+
+        gameArena.appendChild(friend);
+        gameArena.appendChild(lover);
+
+        return { friend, lover };
+      }
+
+      function resetPage3() {
+        heartPicked = false;
+        choiceMade = false;
+        heartMessage.innerHTML = '⋆｡°✩ touch a heart';
+        gameArena.style.display = 'none';
+        finalMessage.innerHTML = '';
+        nextBtn.style.display = 'none';
+        gameArena.innerHTML = '';
+        
+        hearts.forEach(h => h.classList.remove('selected'));
+      }
+
+      function getRandomPosition(friend, lover) {
+        const arenaRect = gameArena.getBoundingClientRect();
+        const btnWidth = friend.offsetWidth;
+        const btnHeight = friend.offsetHeight;
+        const loverWidth = lover.offsetWidth;
+        const loverHeight = lover.offsetHeight;
+        
+        const maxX = Math.max(20, arenaRect.width - btnWidth - 20);
+        const maxY = Math.max(20, arenaRect.height - btnHeight - 20);
+        
+        // Dapatkan posisi lover
+        const loverLeft = parseFloat(lover.style.left) || (arenaRect.width - loverWidth - 30);
+        const loverTop = parseFloat(lover.style.top) || 30;
+        
+        // Cari posisi terjauh dari lover
+        let bestX = 20, bestY = 20, bestDistance = 0;
+        
+        for (let i = 0; i < 20; i++) {
+          const randomX = 20 + Math.random() * (maxX - 20);
+          const randomY = 20 + Math.random() * (maxY - 20);
+          
+          const distance = Math.sqrt(
+            Math.pow(randomX + btnWidth/2 - (loverLeft + loverWidth/2), 2) +
+            Math.pow(randomY + btnHeight/2 - (loverTop + loverHeight/2), 2)
+          );
+          
+          if (distance > bestDistance) {
+            bestDistance = distance;
+            bestX = randomX;
+            bestY = randomY;
+          }
+        }
+        
+        return { x: bestX, y: bestY };
+      }
+
+      function setupBrutalTouchListeners(friend, lover) {
+        // ===== FRIEND BUTTON - BRUTAL TOUCH =====
+        
+        // Mouse events untuk desktop
+        friend.addEventListener('mouseenter', function(e) {
+          if (choiceMade || !heartPicked) return;
+          
+          // Tambah class touched
+          this.classList.add('touched');
+          
+          // Gerak brutal
+          const { x, y } = getRandomPosition(this, lover);
+          
+          const rotate = (Math.random() * 80) - 40; // -40deg sampai 40deg
+          const scale = 0.6 + Math.random() * 1.0; // 0.6 - 1.6
+          
+          this.style.left = x + 'px';
+          this.style.top = y + 'px';
+          this.style.transform = `rotate(${rotate}deg) scale(${scale})`;
+          
+          // Ganti text
+          const texts = [
+            '🏃', 'catch me!', '😝', 'too slow!', 
+            'nope!', 'try again', '😂', '👋',
+            '🏃‍♀️', 'almost!', '🤪', 'miss!'
+          ];
+          this.textContent = texts[Math.floor(Math.random() * texts.length)];
+          
+          // Hapus class setelah 300ms
+          clearTimeout(touchTimeout);
+          touchTimeout = setTimeout(() => {
+            if (!choiceMade) {
+              this.classList.remove('touched');
+              this.textContent = 'just friends 😐';
+              this.style.transform = '';
+            }
+          }, 300);
+        });
+
+        friend.addEventListener('mouseleave', function() {
+          // Langsung reset
+          clearTimeout(touchTimeout);
+          if (!choiceMade) {
+            this.classList.remove('touched');
+            this.textContent = 'just friends 😐';
+            this.style.transform = '';
+          }
+        });
+
+        // Touch events untuk HP
+        friend.addEventListener('touchstart', function(e) {
+          e.preventDefault();
+          if (choiceMade || !heartPicked) return;
+          
+          this.classList.add('touched');
+          
+          const { x, y } = getRandomPosition(this, lover);
+          
+          const rotate = (Math.random() * 100) - 50; // -50deg sampai 50deg
+          const scale = 0.5 + Math.random() * 1.2; // 0.5 - 1.7
+          
+          this.style.left = x + 'px';
+          this.style.top = y + 'px';
+          this.style.transform = `rotate(${rotate}deg) scale(${scale})`;
+          
+          const texts = [
+            'BRUTAL!', '😱', 'NO!', 'KEJAR!', 
+            '🏃💨', '🔥', 'MISS!', 'BYE!'
+          ];
+          this.textContent = texts[Math.floor(Math.random() * texts.length)];
+          
+          // Hapus setelah 400ms
+          clearTimeout(touchTimeout);
+          touchTimeout = setTimeout(() => {
+            if (!choiceMade) {
+              this.classList.remove('touched');
+              this.textContent = 'just friends 😐';
+              this.style.transform = '';
+            }
+          }, 400);
+        }, { passive: false });
+
+        friend.addEventListener('touchend', function(e) {
+          e.preventDefault();
+          // Langsung reset
+          clearTimeout(touchTimeout);
+          if (!choiceMade) {
+            this.classList.remove('touched');
+            this.textContent = 'just friends 😐';
+            this.style.transform = '';
+          }
+        });
+
+        // Click handler - SUSAH BANGET!
+        friend.addEventListener('click', function(e) {
+          if (choiceMade || !heartPicked) return;
+          
+          // 90% gagal
+          if (Math.random() > 0.1) {
+            // Gagal - kabur lagi
+            this.classList.add('touched');
+            
+            const { x, y } = getRandomPosition(this, lover);
+            
+            const rotate = (Math.random() * 120) - 60;
+            const scale = 0.4 + Math.random() * 1.3;
+            
+            this.style.left = x + 'px';
+            this.style.top = y + 'px';
+            this.style.transform = `rotate(${rotate}deg) scale(${scale})`;
+            this.textContent = 'missed! 😝';
+            
+            setTimeout(() => {
+              if (!choiceMade) {
+                this.classList.remove('touched');
+                this.textContent = 'just friends 😐';
+                this.style.transform = '';
+              }
+            }, 300);
+            return;
+          }
+          
+          // 10% berhasil
+          choiceMade = true;
+          finalMessage.innerHTML = '🤝 WHOA! YOU CAUGHT IT! okay, let\'s be friends. i respect that.';
+          gameArena.style.display = 'none';
+          nextBtn.style.display = 'inline-block';
+          heartMessage.innerHTML = '🥹 incredible... you caught the uncatchable.';
+        });
+
+        // ===== LOVER BUTTON - BRUTAL TOUCH =====
+        lover.addEventListener('mouseenter', function() {
+          if (choiceMade || !heartPicked) return;
+          
+          this.classList.add('touched');
+        });
+
+        lover.addEventListener('mouseleave', function() {
+          if (choiceMade) return;
+          this.classList.remove('touched');
+        });
+
+        lover.addEventListener('touchstart', function(e) {
+          if (choiceMade || !heartPicked) return;
+          e.preventDefault();
+          this.classList.add('touched');
+        }, { passive: false });
+
+        lover.addEventListener('touchend', function(e) {
+          if (choiceMade) return;
+          e.preventDefault();
+          this.classList.remove('touched');
+        });
+
+        lover.addEventListener('click', function() {
+          if (choiceMade || !heartPicked) return;
+          choiceMade = true;
+          
+          finalMessage.innerHTML = '💖💖 YES! thank you for choosing me! i promise i won\'t let you down this time!';
+          gameArena.style.display = 'none';
+          nextBtn.style.display = 'inline-block';
+          heartMessage.innerHTML = '✨✨ YOU MADE MY HEART EXPLODE! ✨✨';
+        });
+      }
+
+      function handleHeartSelect(heart, emoji) {
+        if (heartPicked) return;
+        heartPicked = true;
+        
+        heart.classList.add('selected');
+        setTimeout(() => heart.classList.remove('selected'), 600);
+        
+        heartMessage.innerHTML = `you picked ${emoji}! NOW TRY TO TOUCH THE RUNAWAY BUTTON! ⬇️⚡`;
+        
+        gameArena.style.display = 'block';
+        const { friend, lover } = createButtons();
+        
+        setupBrutalTouchListeners(friend, lover);
+      }
+
+      hearts.forEach((heart, index) => {
+        const emojis = ['❤️', '🩷', '💜'];
+        heart.addEventListener('click', () => handleHeartSelect(heart, emojis[index]));
+        heart.addEventListener('touchstart', (e) => {
+          e.preventDefault();
+          handleHeartSelect(heart, emojis[index]);
+        }, { passive: false });
+      });
+
+      openBtn.addEventListener('click', () => showPage(page2));
+      openBtn.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        showPage(page2);
+      }, { passive: false });
+      
+      toPage3Btn.addEventListener('click', () => {
+        resetPage3();
+        showPage(page3);
+      });
+      toPage3Btn.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        resetPage3();
+        showPage(page3);
+      }, { passive: false });
+
+      toPage4Btn.addEventListener('click', () => showPage(page4));
+      toPage4Btn.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        showPage(page4);
+      }, { passive: false });
+
+      restartBtn.addEventListener('click', () => {
+        resetPage3();
+        showPage(page1);
+      });
+      restartBtn.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        resetPage3();
+        showPage(page1);
+      }, { passive: false });
+
+    })();
+  </script>
+</body>
+</html>
